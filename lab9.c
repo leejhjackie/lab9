@@ -45,9 +45,21 @@ void openfiles ( char *fileone, char *filetwo )
 	FILE *NAME = fopen(filetwo, "r");
 	FILE *OUT = fopen("full_data.csv", "w");
 
-	int id, count, out, file2, a;
+	int id, count, out, file2, a,i;
 	char result[50], answer[NUMBER_OF_QUESTIONS];
 	char zero[ ]= "Key";
+	char *title[] = {"ID", "Name", "Q1", "Q2", "Q3", "Q4", "Q5", "Q6", "Q7", "Q8", "Q9", "Q10", "Q11"};
+
+	for(i = 0; i < 13; i++){
+		if( i == 12 ){
+			fprintf(OUT, "%s\n", title[ i ]);
+			printf("%s\n", title[i] );
+		}
+		else {
+			fprintf(OUT, "%s, ", title[ i ] );
+			printf("%s, ", title[ i ]);
+		}
+	}
 
 	while (fscanf( ANSWER, "%d", &id ) == 1){
 
